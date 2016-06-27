@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns="http://itix.fr/soap/mtom" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:ns1="http://org.apache.axis2/xsd" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="http://itix.fr/soap/mtom">
+    <wsdl:documentation>VendorBackend</wsdl:documentation>
+    <wsdl:types>
+        <xs:schema attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://itix.fr/soap/mtom">
+            <xs:element name="countBytes">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="args0" nillable="true" type="xs:base64Binary"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="countBytesResponse">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element minOccurs="0" name="return" type="xs:int"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="countBytesRequest">
+        <wsdl:part name="parameters" element="ns:countBytes"/>
+    </wsdl:message>
+    <wsdl:message name="countBytesResponse">
+        <wsdl:part name="parameters" element="ns:countBytesResponse"/>
+    </wsdl:message>
+    <wsdl:portType name="MtomServicePortType">
+        <wsdl:operation name="countBytes">
+            <wsdl:input message="ns:countBytesRequest" wsaw:Action="urn:countBytes"/>
+            <wsdl:output message="ns:countBytesResponse" wsaw:Action="urn:countBytesResponse"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="MtomServiceSoap11Binding" type="ns:MtomServicePortType">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="countBytes">
+            <soap:operation soapAction="urn:countBytes" style="document"/>
+            <wsdl:input>
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="MtomServiceSoap12Binding" type="ns:MtomServicePortType">
+        <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="document"/>
+        <wsdl:operation name="countBytes">
+            <soap12:operation soapAction="urn:countBytes" style="document"/>
+            <wsdl:input>
+                <soap12:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap12:body use="literal"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:binding name="MtomServiceHttpBinding" type="ns:MtomServicePortType">
+        <http:binding verb="POST"/>
+        <wsdl:operation name="countBytes">
+            <http:operation location="countBytes"/>
+            <wsdl:input>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:input>
+            <wsdl:output>
+                <mime:content type="application/xml" part="parameters"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="MtomService">
+        <wsdl:port name="MtomServiceHttpSoap11Endpoint" binding="ns:MtomServiceSoap11Binding">
+            <soap:address location="http://localhost:8080/axis2/services/MtomService.MtomServiceHttpSoap11Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="MtomServiceHttpSoap12Endpoint" binding="ns:MtomServiceSoap12Binding">
+            <soap12:address location="http://localhost:8080/axis2/services/MtomService.MtomServiceHttpSoap12Endpoint/"/>
+        </wsdl:port>
+        <wsdl:port name="MtomServiceHttpEndpoint" binding="ns:MtomServiceHttpBinding">
+            <http:address location="http://localhost:8080/axis2/services/MtomService.MtomServiceHttpEndpoint/"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

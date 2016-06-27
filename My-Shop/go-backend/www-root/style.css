@@ -1,0 +1,218 @@
+#search_bar {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 450px;
+  height: 50px;
+}
+
+#search_textbox {
+  width: 350px;
+  height: 20px;
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  background-color: gray;
+}
+
+#search_results {
+  width: 350px;
+  position: absolute;
+  top: 30px;
+  right: 0px;
+  background-color: white;
+  border: 1px solid lightgrey;
+  z-index: 255;
+  visibility: hidden;
+}
+
+#search_results span, #search_results img {
+  display:inline-block;
+  vertical-align:middle;
+  margin-right: 5px;
+}
+
+#search_results div {
+  cursor: pointer; cursor: hand;
+  border: 1px solid white;
+}
+
+#search_results div:hover {
+  border: 1px solid gray;
+}
+
+.no_result {
+  color: lightgrey;
+  font-style: italic;
+}
+
+#category_bar {
+  position: absolute;
+  top: 100px;
+  left: 0px;
+  width: 200px;
+}
+
+#products_pane {
+  position: absolute;
+  top: 100px;
+  left: 250px;
+  right: 0px;
+  min-height: 300px;
+}
+
+#content_pane {
+  position: absolute;
+  top: 0px;
+  left: 30px;
+  right: 30px;
+}
+
+body {
+  background-color: #AAAAAA;
+  font-family: Sans-Serif;
+}
+
+#main_pane {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  background-color: #EEEEEE;
+  min-height: 800px;
+}
+
+#site_header {
+  position: absolute;
+  top: 0px;
+  height: 116px;
+  left: 30px;
+  right: 30px;
+}
+
+#site_logo {
+  position: absolute;
+  top: 40px;
+  width: 345px;
+  left: 40px;
+}
+
+
+#pages_container {
+  position: absolute;
+  top: 140px;
+  bottom: 30px;
+  right: 30px;
+  left: 60px;
+}
+
+#page_title {
+  position: absolute;
+  top: 10px;
+  right: 30px;
+  left: 30px;
+  font: normal normal normal 25px/1.2em sans-serif;
+}
+
+#page_title > h2 {
+  line-height: 1.1em;
+  font: normal normal normal 22px/1.1em sans-serif;
+  color: #00CCFF;
+  margin         : 0;
+  padding        : 0;
+  border         : 0;
+  outline        : 0;
+}
+
+#page_title > h5 {
+  color: #7F7F7F;
+  line-height: 1.2em;
+  letter-spacing: normal;
+  margin         : 0;
+  padding        : 0;
+  border         : 0;
+  outline        : 0;
+}
+
+.product_table {
+  width: 100%;
+  border-spacing: 10px;
+  border-collapse: separate;
+}
+
+.product_table span, .product_table img {
+  display: block;
+  margin: auto;
+}
+
+.product_table img {
+  margin-bottom: 10px;
+}
+
+.product_table td {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  background-color: white;
+  width: 33%;
+  color: darkgrey;
+  cursor: pointer; cursor: hand;
+}
+
+.category_item {
+  display: block;
+  margin-bottom: 10px;
+  text-decoration: none;
+  cursor: pointer; cursor: hand;
+}
+
+.category_item:hover {
+  text-decoration: underline;
+}
+
+.product_price {
+  position: absolute;
+  top: 20px;
+  left: 300px;
+  color: red;
+  font-size: x-large;
+}
+
+.product_detail > div {
+  position: relative;
+}
+
+.product_stock {
+  position: absolute;
+  top: 60px;
+  left: 300px;
+  color: darkgreen;
+}
+
+.sold_by {
+  position: absolute;
+  top: 80px;
+  left: 300px;
+  color: darkgreen;
+}
+
+.product_description {
+  margin-top: 20px;
+  color: darkgrey;
+}
+
+.buy_button {
+  position: absolute;
+  top: 150px;
+  left: 300px;
+  background-color: red;
+  color: white;
+  width: 100px;
+  height: 30px;
+  cursor: pointer; cursor: hand;
+}
+
+.buy_button > div {
+  text-align: center;
+  line-height: 30px;
+  vertical-align: middle;
+}
